@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EBbIy8f3+o3KGEHwqZ+Z8SygGDbb9+XlY32JcaaXWsVlCmeSETfbza7RD0ltsidz5LwZoBbez+HTKvFpjsqXAQ==",
+  "dgSpecHash": "v3DndAxahxCrIz6CoImX4pafwKUuhmO4rx8YE7LqJ0XNtSOXcSEjzTX+3t5LWk2hRaRhhb0FZYZsBtkqtEbtZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\api\\API.csproj",
+  "projectFilePath": "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carli\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\carli\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

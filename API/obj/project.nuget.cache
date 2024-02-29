@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "br90rf98Y50GXHYLdlmAb94oBFcJ6rumMUAZEfiJL8fz9jZatV2FvBHpg9rbTqR/CstUtmBPhGKJMDpXOsXeBA==",
+  "dgSpecHash": "Ix5M2P6eXmYA1WZnkIgYcuKvnn0Pu279+lru756Xz2J9iG1iC9r0bnKXI0obYGDX31XHQPEsfVgIj6+kU0t8gg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carli\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\carli\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -96,12 +96,5 @@
     "C:\\Users\\carli\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\carli\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

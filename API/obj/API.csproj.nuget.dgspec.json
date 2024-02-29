@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj": {}
+    "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj": {
+    "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
+        "projectPath": "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\carli\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\obj\\",
+        "outputPath": "C:\\Users\\carli\\Desktop\\9noSemestre\\citasApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carli\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -14,10 +14,11 @@ namespace API.Controllers;
 [Authorize]
 public class UsersController : BaseApiController
 {
-
+    #region Private vars
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
     private readonly IPhotoService _photoService;
+
 
     public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService)
     {
@@ -25,7 +26,7 @@ public class UsersController : BaseApiController
         _mapper = mapper;
         _photoService = photoService;
     }
-
+    #endregion
     [HttpGet]
 
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
@@ -74,9 +75,33 @@ public class UsersController : BaseApiController
         }
         user.Photos.Add(photo);
 
-        if (await _userRepository.SaveAllAsync()) return _mapper.Map<PhotoDto>(photo);
+        if (await _userRepository.SaveAllAsync())
+        {
+            //return _mapper.Map<PhotoDto>(photo);
+            return CreatedAtAction(nameof(GetUser), new { username = user.UserName }, _mapper.Map<PhotoDto>(photo));
+        }
 
         return BadRequest("Problem adding photo");
 
+    }
+
+    [HttpPut("photo/{photoId}")]
+
+    public async Task<ActionResult> SetMainPhoto(int photoId)
+    {
+        var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+        if (user == null) return NotFound();
+
+        var newMainphoto = user.Photos.FirstOrDefault(photo => photo.Id == photoId);
+        if (newMainphoto == null) return NotFound();
+
+        if (newMainphoto.IsMain) return BadRequest("This is already your main photo");
+
+        var currentMainphoto = user.Photos.FirstOrDefault(photo => photo.IsMain);
+        if (currentMainphoto != null) currentMainphoto.IsMain = false;
+        newMainphoto.IsMain = true;
+
+        if (await _userRepository.SaveAllAsync()) return NoContent();
+        return BadRequest("Failed to set main photo");
     }
 }

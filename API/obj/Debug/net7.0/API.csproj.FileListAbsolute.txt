@@ -72,3 +72,5 @@ C:\Users\carli\Desktop\9noSemestre\citasApp\api\bin\Debug\net7.0\Microsoft.Ident
 C:\Users\carli\Desktop\9noSemestre\citasApp\api\bin\Debug\net7.0\data\UserSeedData.json
 C:\Users\carli\Desktop\9noSemestre\citasApp\api\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\carli\Desktop\9noSemestre\citasApp\api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\carli\Desktop\9noSemestre\citasApp\API\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\carli\Desktop\9noSemestre\citasApp\API\bin\Debug\net7.0\Newtonsoft.Json.dll

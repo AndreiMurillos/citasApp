@@ -1,20 +1,48 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="false">
-  <h2 class="text-center text-primary">Registrate</h2>
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="false">
+  <h2 class="text-center text-primary">Regístrate</h2>
   <hr>
   <div class="mb-3">
-    <input type="text" class="form-control" name="username" [(ngModel)]="model.userName" placeholder="Username">
+      <input type="text"
+          [class.is-invalid]="registerForm.get('username')?.errors && registerForm.get('username')?.touched"
+          class="form-control"
+          placeholder="Nombre de usuario"
+          formControlName="username">
+      <div class="invalid-feedback">Debes ingresar tu nombre de usuario</div>
   </div>
-  <!-- <div class="mb-3">
-    <label>Usuario favorito</label>
-    <select name="" id="" class="form-select">
-      <option *ngFor="let user of usersFromHomeComponent" [value]="user.userName">{{user.userName}}</option>
-    </select>
-  </div> -->
   <div class="mb-3">
-    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password">
+      <input type="password"
+          [class.is-invalid]="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
+          class="form-control"
+          placeholder="Contraseña"
+          formControlName="password">
+      <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('required')">
+          Debes ingresar tu contraseña
+      </div>
+      <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('minlength')">
+          Debes ingresar una contraseña mayor a 4 caracteres
+      </div>
+      <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('maxlength')">
+          Debes ingresar una contraseña menor a 8 caracteres
+      </div>
+  </div>
+  <div class="mb-3">
+      <input type="password"
+          [class.is-invalid]="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched"
+          class="form-control"
+          placeholder="Confirmar contraseña"
+          formControlName="confirmPassword">
+      <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword')?.hasError('required')">
+          Debes ingresar tu confirmación de contraseña
+      </div>
+      <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword')?.hasError('notMatching')">
+          Ambos contraseñas deben ser iguales
+      </div>
   </div>
   <div class="text-center">
-    <button class="btn btn-success me-2" type="submit">Registrarme</button>
-    <button class="btn btn-default" type="button" (click)="cancel()">Cancelar</button>
+      <button class="btn btn-success me-2" type="submit">Registrarme</button>
+      <button class="btn btn-default" type="button" (click)="cancel()">Cancelar</button>
   </div>
 </form>
+
+<p>Form value: {{registerForm.value | json}}</p>
+<p>Form status: {{registerForm.status | json}}</p>

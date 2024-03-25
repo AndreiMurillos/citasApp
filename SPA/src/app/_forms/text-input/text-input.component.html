@@ -1,1 +1,19 @@
-<p>text-input works!</p>
+<div class="mb-3">
+  <input type={{type}}
+      [class.is-invalid]="control.touched && control.invalid"
+      class="form-control"
+      placeholder={{label}}
+      [formControl]="control">
+  <div class="invalid-feedback" *ngIf="control.errors?.['required']">
+      Debes ingresar tu {{label}}
+  </div>
+  <div class="invalid-feedback" *ngIf="control.errors?.['minlength']">
+      {{label}} debe tener al menos {{control.errors?.['minlength'].requiredLength}} caracteres
+  </div>
+  <div class="invalid-feedback" *ngIf="control.errors?.['maxlength']">
+      {{label}} debe tener menos de {{control.errors?.['maxlength'].requiredLength}} caracteres
+  </div>
+  <div class="invalid-feedback" *ngIf="control.errors?.['notMatching']">
+    Las contraseñas no coinciden
+  </div>
+</div>

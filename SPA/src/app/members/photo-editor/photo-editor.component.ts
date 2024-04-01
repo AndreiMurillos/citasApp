@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IMember } from 'src/app/_models/imember';
+import { Member } from 'src/app/_models/member';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment.development';
-import { IUser } from 'src/app/_models/iuser';
+import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { take } from 'rxjs';
-import { IPhoto } from 'src/app/_models/iphoto';
+import { Photo } from 'src/app/_models/photo';
 import { MembersService } from 'src/app/_services/members.service';
 
 @Component({
@@ -14,11 +14,11 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./photo-editor.component.css']
 })
 export class PhotoEditorComponent implements OnInit{
-  @Input() member: IMember | undefined;
+  @Input() member: Member | undefined;
   uploader: FileUploader | undefined;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
-  user: IUser | undefined;
+  user: User | undefined;
 
   constructor(private accountService: AccountService, private memberService: MembersService) {
     this.accountService.currentUser$
@@ -40,7 +40,7 @@ export class PhotoEditorComponent implements OnInit{
     this.hasBaseDropZoneOver = e;
   }
 
-  setMainPhoto(photo: IPhoto){
+  setMainPhoto(photo: Photo){
     this.memberService.setMainPhoto(photo.id).subscribe({
       next: () => {
         if (this.user && this.member) {

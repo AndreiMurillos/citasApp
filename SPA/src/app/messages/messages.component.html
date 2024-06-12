@@ -29,7 +29,7 @@
 </div>
 
 <div class="row" *ngIf="messages && messages.length > 0">
-  <table class="table table-hover" style="cursor: pointer;">
+    <table [hidden]="loading" class="table table-hover" style="cursor: pointer;">
       <thead>
           <tr>
               <th stryle="width: 40%">Message</th>
@@ -42,17 +42,17 @@
           <tr *ngFor="let message of messages"
               routerLink="{{container === 'outbox'
                   ? '/members/' + message.recipientUsername
-                  : '/members/' + message.senderUsername}}">
+                  : '/members/' + message.senderUsername}}" [queryParams]="{tab: 'Mensajes'}">
               <td>{{message.content}}</td>
               <td>
-                  <div *ngIf="container === 'outbox'">
+                <div *ngIf="container === 'Outbox'">
                       <img
                           class="img-circle rounded-circle me-2"
                           src="{{message.recipientPhotoUrl || './assets/user.png'}}"
                           alt="recipient photo">
                       <strong>{{message.recipientUsername | titlecase}}</strong>
                   </div>
-                  <div *ngIf="container !== 'outbox'">
+                  <div *ngIf="container !== 'Outbox'">
                       <img
                           class="img-circle rounded-circle me-2"
                           src="{{message.senderPhotoUrl || './assets/user.png'}}"
@@ -60,16 +60,16 @@
                       <strong>{{message.senderUsername | titlecase}}</strong>
                   </div>
               </td>
-              <td>{{message.messageSent | timeago}}</td>
+              <td>{{message.messageSent + "Z" | timeago}}</td>
               <td>
-                  <button class="btn btn-danger">Delete</button>
+                <button (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)" class="btn btn-danger">Borrar</button>
               </td>
           </tr>
       </tbody>
   </table>
 </div>
 
-<div class="d-flex justify-content-center" *ngIf="pagination && messages && messages.length > 0">
+<div class="d-flex justify-content-center" *ngIf="!loading && pagination && messages && messages.length > 0">
   <pagination
       [boundaryLinks]="true"
       [totalItems]="pagination.totalItems"
